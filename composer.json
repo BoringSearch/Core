@@ -1,0 +1,27 @@
+{
+    "name": "boringsearch/core",
+    "type": "library",
+    "description": "The core component of BoringSearch",
+    "homepage": "https://github.com/BoringSearch",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yanick Witschi",
+            "homepage": "https://github.com/toflar"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BoringSearch\\Core\\": "src/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/BoringSearch/BoringSearch/issues",
+        "source": "https://github.com/BoringSearch/BoringSearch",
+        "docs": "https://github.com/BoringSearch/BoringSearch"
+    }
+}
