@@ -39,5 +39,14 @@ interface QueryInterface
      */
     public function getAttributeNamesToRetrieve(): array;
 
+    /**
+     * Sometimes one might not be interested in all attributes
+     * of a document to have highlighted keywords. This method allows to specify them.
+     * An empty array means highlight keywords all attributes.
+     *
+     * @return array<string>
+     */
+    public function getAttributesToHighlight(): array;
+
     // TODO: Filters
 }

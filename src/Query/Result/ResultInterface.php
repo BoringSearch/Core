@@ -14,8 +14,11 @@ namespace BoringSearch\Core\Query\Result;
 
 use BoringSearch\Core\Document\DocumentInterface;
 
-// TODO: extend with typical match information like highlights / match context etc.
 interface ResultInterface
 {
     public function getDocument(): DocumentInterface;
+
+    public function getHighlights(): HighlightCollection;
+
+    public function equals(self $result): bool;
 }

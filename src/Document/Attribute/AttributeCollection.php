@@ -39,6 +39,11 @@ class AttributeCollection implements \JsonSerializable
         return $this->attributes[$name] ?? null;
     }
 
+    public function getAttributeNames(): array
+    {
+        return array_keys($this->attributes);
+    }
+
     /**
      * @return array<AttributeInterface>
      */

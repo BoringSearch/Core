@@ -52,11 +52,12 @@ class ResultCollection
 
         foreach ($this->getResults() as $result) {
             $otherResult = $otherCollection->findResultForDocumentIdentifier($result->getDocument()->getIdentifier());
+
             if (null === $otherResult) {
                 return false;
             }
 
-            if (!$result->getDocument()->equals($otherResult->getDocument())) {
+            if (!$result->equals($otherResult)) {
                 return false;
             }
         }
