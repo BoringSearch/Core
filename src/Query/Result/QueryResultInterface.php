@@ -17,11 +17,9 @@ use BoringSearch\Core\Query\QueryInterface;
 interface QueryResultInterface
 {
     /**
-     * Contains the search query matches.
-     *
-     * @return array<ResultInterface>
+     * Contains the search query results.
      */
-    public function getResults(): array;
+    public function getResults(): ResultCollection;
 
     /**
      * Contains the number of results. Might be an approximation, see isNumberOfResultsApproximation().

@@ -17,30 +17,21 @@ use BoringSearch\Core\Query\QueryInterface;
 class QueryResult implements QueryResultInterface
 {
     private QueryInterface $query;
-    /**
-     * @var array<ResultInterface>
-     */
-    private array $matches;
+    private ResultCollection $results;
     private int $numberOfResults;
     private bool $isNumberOfResultsApproximation;
 
-    /**
-     * @param array<ResultInterface> $matches
-     */
-    public function __construct(QueryInterface $query, array $matches, int $numberOfResults, bool $isNumberOfResultsApproximation)
+    public function __construct(QueryInterface $query, ResultCollection $results, int $numberOfResults, bool $isNumberOfResultsApproximation)
     {
         $this->query = $query;
-        $this->matches = $matches;
+        $this->results = $results;
         $this->numberOfResults = $numberOfResults;
         $this->isNumberOfResultsApproximation = $isNumberOfResultsApproximation;
     }
 
-    /**
-     * @return array<ResultInterface>
-     */
-    public function getResults(): array
+    public function getResults(): ResultCollection
     {
-        return $this->matches;
+        return $this->results;
     }
 
     public function getNumberOfResults(): int
