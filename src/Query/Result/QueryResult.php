@@ -21,36 +21,36 @@ class QueryResult implements QueryResultInterface
      * @var array<ResultInterface>
      */
     private array $matches;
-    private int $numberOfMatches;
-    private bool $isNumberOfMatchesApproximation;
+    private int $numberOfResults;
+    private bool $isNumberOfResultsApproximation;
 
     /**
      * @param array<ResultInterface> $matches
      */
-    public function __construct(QueryInterface $query, array $matches, int $numberOfMatches, bool $isNumberOfMatchesApproximation)
+    public function __construct(QueryInterface $query, array $matches, int $numberOfResults, bool $isNumberOfResultsApproximation)
     {
         $this->query = $query;
         $this->matches = $matches;
-        $this->numberOfMatches = $numberOfMatches;
-        $this->isNumberOfMatchesApproximation = $isNumberOfMatchesApproximation;
+        $this->numberOfResults = $numberOfResults;
+        $this->isNumberOfResultsApproximation = $isNumberOfResultsApproximation;
     }
 
     /**
      * @return array<ResultInterface>
      */
-    public function getMatches(): array
+    public function getResults(): array
     {
         return $this->matches;
     }
 
-    public function getNumberOfMatches(): int
+    public function getNumberOfResults(): int
     {
-        return $this->numberOfMatches;
+        return $this->numberOfResults;
     }
 
-    public function isNumberOfMatchesApproximation(): bool
+    public function isNumberOfResultsApproximation(): bool
     {
-        return $this->isNumberOfMatchesApproximation;
+        return $this->isNumberOfResultsApproximation;
     }
 
     public function getQuery(): QueryInterface
