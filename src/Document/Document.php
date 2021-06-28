@@ -39,4 +39,44 @@ class Document implements DocumentInterface
     {
         return $this->attributes;
     }
+
+    public function equals(DocumentInterface $document): bool
+    {
+        if ($this->getIdentifier() !== $document->getIdentifier()) {
+            return false;
+        }
+
+        if ($this->getAttributeNames($this) !== $this->getAttributeNames($document)) {
+            return false;
+        }
+
+        $documentAttributes = $document->getAttributes();
+
+        foreach ($this->getAttributes() as $attribute) {
+            $documentAttribute = $documentAttributes->getAttributeByName($attribute->getName());
+
+            if ($attribute->getType() !== $documentAttribute->getType()) {
+                return false;
+            }
+
+            if ($attribute->getValue() !== $documentAttribute->getValue()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private function getAttributeNames(DocumentInterface $document): array
+    {
+        $names = [];
+
+        foreach ($document->getAttributes() as $attribute) {
+            $names[] = $attribute->getName();
+        }
+
+        sort($names);
+
+        return $names;
+    }
 }

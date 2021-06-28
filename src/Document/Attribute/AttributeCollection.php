@@ -29,9 +29,14 @@ class AttributeCollection implements \JsonSerializable
 
     public function addAttribute(AttributeInterface $attribute): self
     {
-        $this->attributes[] = $attribute;
+        $this->attributes[$attribute->getName()] = $attribute;
 
         return $this;
+    }
+
+    public function getAttributeByName(string $name): ?AttributeInterface
+    {
+        return $this->attributes[$name] ?? null;
     }
 
     /**

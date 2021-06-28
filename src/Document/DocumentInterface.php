@@ -19,4 +19,6 @@ interface DocumentInterface
     public function getIdentifier(): string;
 
     public function getAttributes(): AttributeCollection; // TODO: do we need an interface here?
+
+    public function equals(self $document): bool;
 }
