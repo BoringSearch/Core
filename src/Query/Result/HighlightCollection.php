@@ -50,7 +50,7 @@ class HighlightCollection
         }
 
         // Sort by attribute name and then start
-        $sortHighlights = function (array &$highlights) {
+        $sortHighlights = function (array & $highlights) {
             uasort($highlights, function (Highlight $a, Highlight $b) {
                 if ($a->getAttributeName() === $a->getAttributeName()) {
                     // sort the higher start first

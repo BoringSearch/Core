@@ -20,7 +20,7 @@ class ResultCollection
     /**
      * @param ResultInterface[] $results
      */
-    public function __construct(array $results)
+    public function __construct(array $results) // TODO: That should probably be a Generator/iterable for lower memory usage
     {
         $this->results = $results;
     }

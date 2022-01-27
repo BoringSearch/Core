@@ -34,6 +34,13 @@ class AttributeCollection implements \JsonSerializable
         return $this;
     }
 
+    public function removeAttribute(AttributeInterface $attribute): self
+    {
+        unset($this->attributes[$attribute->getName()]);
+
+        return $this;
+    }
+
     public function getAttributeByName(string $name): ?AttributeInterface
     {
         return $this->attributes[$name] ?? null;
@@ -52,7 +59,7 @@ class AttributeCollection implements \JsonSerializable
         return $this->attributes;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }

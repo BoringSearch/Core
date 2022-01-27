@@ -79,4 +79,29 @@ class Document implements DocumentInterface
 
         return $names;
     }
+
+    public function withoutAttributes(...$names): self
+    {
+        $clone = clone $this;
+
+        foreach ($names as $name) {
+            $clone = $clone->withoutAttribute($name);
+        }
+
+        return $clone;
+    }
+
+    public function withoutAttribute(string $name): self
+    {
+        // Already removed, don't do anything
+        if (null === ($attribute = $this->getAttributes()->getAttributeByName($name))) {
+            return $this;
+        }
+
+        // Otherwise clone and remove
+        $clone = clone $this;
+        $clone->getAttributes()->removeAttribute($attribute);
+
+        return $clone;
+    }
 }
